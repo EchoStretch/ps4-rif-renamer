@@ -53,7 +53,9 @@ int _main(struct thread *td) {
 
   initSysUtil();
 
-  printf_notification("Running RIF Renamer");
+  char fw_version[6] = {0};
+  get_firmware_string(fw_version);
+  printf_notification("Running RIF Renamer\nPS4 Firmware %s", fw_version);
 
   rename_rifs("/system_data/priv/license");
   rename_rifs("/user/license");
